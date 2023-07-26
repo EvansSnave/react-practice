@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const Changes = (props) => {
   const [object, setObject] = useState({
@@ -6,26 +6,23 @@ const Changes = (props) => {
     color: 'red',
   });
 
-  const value = useRef(object.color).current;
+  useEffect(() => {
+    document.querySelector('.color').textContent = `My color is ${object.color}`;
+  }, [object.color]);
 
-  const update = (arg) => {
+  const update = (color) => {
     setObject( previous => {
-      return { ...previous, color: arg}
+      return { ...previous, color: color}
     })
   }
 
-  useEffect(() => {
-    if (value === 'red') {
-      update('blue');
-    }
-  }, [value]);
-
-  return (
-    <div>
-      <p>My name is { object.name }</p>
-      <p>My color is { object.color }</p>
-      <button type="button" onClick={ () => update(value) }>blue</button>
-    </div>
+return (
+  <div>
+    <p>My name is { object.name }</p>
+    <p className="color"></p>
+    <button className="buttonChange" type="button" onClick={object.color === 'red'?() => update('blue'): () => update('red')}>
+      Change to {object.color === 'red'? 'blue': 'red'}</button>
+  </div>
   );
 }
 
