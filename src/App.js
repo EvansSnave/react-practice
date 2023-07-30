@@ -4,7 +4,7 @@ import Changes from './Components.js';
 function App() {
   return (
     <>
-    <Changes name="Kevin"/>
+    <Changes />
     </>
   );
 }
