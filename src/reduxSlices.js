@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuid } from 'uuid';
 
 const initial = {
   people: [
@@ -20,8 +21,9 @@ const slice = createSlice({
   initialState: initial,
   reducers: {
     addPerson: (state, action) => {
+      const id = uuid();
       const { name, age } = action.payload;
-      const newPerson = { name, age, id: `id${state.people.length}` };
+      const newPerson = { name, age, id: `id${id}`};
       state.people = state.people.concat(newPerson);
     },
     

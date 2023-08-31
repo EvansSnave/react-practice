@@ -6,7 +6,7 @@ export const RenderPeople = () => {
   const dispatch = useDispatch();
   const divs = people.map((person, index) => {
     return (
-      <div>
+      <div key={person.id}>
         <p>Person number {index + 1}</p>
         <p>Name: {person.name}</p>
         <p>Age: {person.age}</p>
