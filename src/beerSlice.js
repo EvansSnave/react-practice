@@ -12,7 +12,7 @@ export const getBeers = createAsyncThunk('beers/getBeers', async () => {
 });
 
 const initialState = {
-  beers: [],
+  beer: [],
 }
 
 export const beerSlice = createSlice({
@@ -22,9 +22,9 @@ export const beerSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getBeers.fulfilled, (state, action) => {
-        state.beers = action.payload;
+        state.beer = action.payload;
       })
-  }
+  },
 });
 
 export default beerSlice.reducer;
