@@ -1,17 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Changes from './Comp';
-import { AddPerson } from './AddPersons';
-import { RenderPeople } from './RenderPeople';
-import RenderBeers from './RenderBeers';
+import Navigator from './Navigator';
+import Main from './Main';
 
 function App() {
   return (
-    <>
-    <Changes />
-    <RenderPeople />
-    <AddPerson />
-    <RenderBeers />
-    </>
+    <Router>
+      <Navigator />
+      <Routes>
+        <Route path="/" element={<Main />}/>
+      </Routes>
+    </Router>
   );
 }
 

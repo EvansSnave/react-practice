@@ -11,18 +11,23 @@ export const getBeers = createAsyncThunk('beers/getBeers', async () => {
   }));
 });
 
-const initialState = {
-  beer: [],
-}
+export const purchaseBeerServer = createAsyncThunk('beers/purchaseBeer', async (beer) => beer);
+
+export const cancelPurchaseServer = createAsyncThunk('beers/cancelPurchase', async (id) => id);
 
 export const beerSlice = createSlice({
   name: 'beers',
-  initialState,
+  initialState: [],
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getBeers.fulfilled, (state, action) => {
-        state.beer = action.payload;
+      .addCase(getBeers.fulfilled, (state, action) => action.payload)
+      .addCase(purchaseBeerServer.fulfilled, (state, action) => {
+        const id = action.payload.id;
+        return state.map((beer) => (beer.id === id ? {...beer, purchased: true} : beer));
+      })
+      .addCase(cancelPurchaseServer.fulfilled, (state, action) => {
+        return state.map((beer) => (beer.id === action.payload ? {...beer, purchased: false} : beer));
       })
   },
 });
