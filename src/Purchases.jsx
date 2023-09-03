@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const Purchases = () => {
-  const drinks = useSelector((state) => state.beers.beer);
+  // const drinks = useSelector((state) => state.beers);
   return (
     <div>
       <h1>Purchased drinks</h1>
