@@ -26,9 +26,8 @@ export const beerSlice = createSlice({
         const id = action.payload.id;
         return state.map((beer) => (beer.id === id ? {...beer, purchased: true} : beer));
       })
-      .addCase(cancelPurchaseServer.fulfilled, (state, action) => {
-        return state.map((beer) => (beer.id === action.payload ? {...beer, purchased: false} : beer));
-      })
+      .addCase(cancelPurchaseServer.fulfilled, (state, action) => 
+        state.map((beer) => (beer.id === action.payload ? {...beer, purchased: false} : beer)))
   },
 });
 
