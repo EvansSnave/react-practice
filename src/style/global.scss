@@ -1,0 +1,37 @@
+@import 
+  "./colors", 
+  "./fonts", 
+  "./responsive"
+;
+
+$global-margin: 4rem;
+
+@mixin center-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  background-color: transparent;
+  outline: 1px solid red;
+  font-family: 'Main','sans-serif';
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.App {
+  margin: 0 $global-margin; // Centers the container
+}

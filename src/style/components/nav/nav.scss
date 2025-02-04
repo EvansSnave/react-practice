@@ -1,0 +1,30 @@
+@import "./nav-var", "../../global.scss";
+
+@mixin nav-size {
+  height: $nav-height-desktop;
+
+  @include tablet-size {
+    height: $nav-height-tablet;
+  }
+
+  @include phone-size {
+    height: $nav-height-phone;
+  }
+}
+
+nav {
+  @include center-children;
+  @include nav-size;
+  position: fixed;
+  justify-content: space-between;
+  width: calc(100% - $global-margin * 2);
+
+  & > *  {
+    @include center-children;
+  }
+}
+
+.space-nav {
+  @include nav-size;
+  width: 100%;
+}
