@@ -1,9 +1,18 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router";
+import Nav from './components/Nav';
+import Main from "./components/Main";
+import Second from "./components/Second";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      Hello!
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/second" element={<Second />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
