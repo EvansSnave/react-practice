@@ -1,30 +1,49 @@
-@import "./nav-var", "../../global.scss";
+@use "./nav-var";
+@use "../../helpers.scss";
+@use "../../fonts";
+
+$nav-gaps: 1rem;
 
 @mixin nav-size {
-  height: $nav-height-desktop;
+  height: nav-var.$nav-height-desktop;
 
-  @include tablet-size {
-    height: $nav-height-tablet;
+  @include helpers.tablet-size {
+    height: nav-var.$nav-height-tablet;
   }
 
-  @include phone-size {
-    height: $nav-height-phone;
+  @include helpers.phone-size {
+    height: nav-var.$nav-height-phone;
   }
 }
 
 nav {
-  @include center-children;
-  @include nav-size;
   position: fixed;
-  justify-content: space-between;
-  width: calc(100% - $global-margin * 2);
+  width: calc(100% - helpers.$global-margin * 2);
 
-  & > *  {
-    @include center-children;
+  @include helpers.center-children;
+  @include nav-size;
+
+  & > * {
+    @include helpers.center-children;
+    gap: $nav-gaps;
   }
 }
 
+nav {
+  justify-content: space-between;
+}
+
 .space-nav {
-  @include nav-size;
   width: 100%;
+
+  @include nav-size;
+}
+
+li {
+  @include helpers.center-children;
+}
+
+a {
+  font-family: "Secondary";
+  font-size: helpers.$small-font;
 }

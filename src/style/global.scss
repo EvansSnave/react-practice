@@ -1,16 +1,5 @@
-@import 
-  "./colors", 
-  "./fonts", 
-  "./responsive"
-;
-
-$global-margin: 4rem;
-
-@mixin center-children {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@use "./variables";
+@use "./fonts";
 
 * {
   margin: 0;
@@ -25,6 +14,7 @@ $global-margin: 4rem;
   background-color: transparent;
   outline: 1px solid red;
   font-family: 'Main','sans-serif';
+  
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -33,5 +23,5 @@ $global-margin: 4rem;
 }
 
 .App {
-  margin: 0 $global-margin; // Centers the container
+  margin: 0 variables.$global-margin;
 }

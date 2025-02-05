@@ -1,0 +1,9 @@
+$global-margin: 4rem;
+
+$small-font: 16px;
+
+@mixin center-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

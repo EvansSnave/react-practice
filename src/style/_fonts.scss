@@ -1,4 +1,9 @@
 @font-face {
-  font-family: 'Titles';
-  src: url('') format('truetype');
+  font-family: 'Main';
+  src: url('../assets/fonts/Michroma-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Secondary';
+  src: url('../assets/fonts/Ligconsolata-Regular.ttf') format('truetype');
 }

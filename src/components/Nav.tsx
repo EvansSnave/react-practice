@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "../style/components/nav/nav.scss"
+import CustomButton from "./CustomButton";
 
 interface CustomLink {
   link: string,
@@ -14,6 +15,10 @@ const LINKS: CustomLink[] = [
 const RouteLink = ({ newLink }:{ newLink: CustomLink }) => <li><Link to={ newLink.link }>{ newLink.title }</Link></li>;
 
 const Nav = () => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("Button clicked!", event);
+  };
+
   return (<header>
     <nav>
       <div className="icon-container">
@@ -21,7 +26,7 @@ const Nav = () => {
         <p>Kevin Cruz</p>
       </div>
       <ul>{ LINKS.map((newLink, i) => <RouteLink newLink={ newLink } key={ i } />) }</ul>
-      <button type="button">Button</button>
+      <CustomButton text="Button" type="main-button" functionality={handleClick} />
     </nav>
     <div className="space-nav"></div>
   </header>)
