@@ -1,26 +1,74 @@
 @use "./fonts";
 @use "./colors";
+@use "./variables";
 
-$button-shadow: #f3f3f3;
-$button-padding: 10px 50px;
+$button-padding: 10px 60px;
+$button-shadow: #e2e2e2;
 
-.wrap {
-  filter: drop-shadow(5px 7px 0px $button-shadow);
-}
-
-.main-button {
-  font-family: "Secondary";
-  background-color: colors.$second-color;
-  color: colors.$first-color;
+.custom-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: $button-padding;
-  clip-path: polygon(0 0, 100% 0, 100% 60%, 90% 100%, 0 100%);
+  color: colors.$first-color;
+  border: none;
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
 
   &:hover {
-    background-color: colors.$third-color;
+    span {
+      color: colors.$first-color;
+    }
+
+    svg {
+      fill: colors.$third-color;
+      stroke: colors.$forth-color;
+    }
   }
 
   &:active {
-    background-color: colors.$forth-color;
+    svg {
+      fill: colors.$forth-color;
+    }
+  }
+
+  span {
+    position: relative;
+    font-family: "Secondary";
+    font-size: variables.$small-font;
+    z-index: 2;
+    color: colors.$second-color;
+  }
+
+  .button-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: drop-shadow( 3px 3px 1px $button-shadow);
+  }
+}
+
+.secondary-button {
+  svg {
+    fill: colors.$first-color;
+    stroke: colors.$second-color;
+    stroke-width: 1;
+  }
+}
+
+.main-button {
+  svg {
+    fill: colors.$second-color;
+    stroke: colors.$second-color;
+    stroke-width: 1;
+  }
+
+  span {
+    color: colors.$first-color;
   }
 }

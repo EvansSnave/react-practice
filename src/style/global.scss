@@ -10,9 +10,9 @@
   text-rendering: optimizeLegibility;
   text-size-adjust: none;
   box-sizing: border-box;
+  color: fonts.$main-font-color;
   border-radius: 0;
   background-color: transparent;
-  outline: 1px solid red;
   font-family: 'Main','sans-serif';
   
   input::-webkit-outer-spin-button,
@@ -22,6 +22,6 @@
   }
 }
 
-.App {
+.content {
   margin: 0 variables.$global-margin;
 }

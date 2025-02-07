@@ -1,0 +1,48 @@
+@use "../helpers.scss";
+@use "../fonts";
+
+$nav-gaps: 1rem;
+
+nav {
+  position: fixed;
+  width: 100%;
+}
+
+.nav-content {
+  background-color: helpers.$first-color;
+  padding: 10px helpers.$global-margin;
+
+  @include helpers.center-children;
+
+  & > * {
+    @include helpers.center-children;
+    gap: $nav-gaps;
+  }
+}
+
+.nav-content {
+  justify-content: space-between;
+}
+
+.nav-bottom {
+  width: 100%;
+
+  svg {
+    fill: helpers.$first-color;
+    stroke: black;
+    stroke-width: 2
+  }
+}
+
+.space-nav {
+  height: 5.5rem
+}
+
+li {
+  @include helpers.center-children;
+}
+
+a {
+  font-family: "Secondary";
+  font-size: helpers.$small-font;
+}
